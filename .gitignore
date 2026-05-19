@@ -1,0 +1,41 @@
+# ── Node ─────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── Build output ──────────────────────────────────
+dist/
+dist-ssr/
+build/
+
+# ── Environment / secrets ─────────────────────────
+# Backend .env (contains JWT secrets & DB password)
+backend/.env
+# Keep frontend .env — only contains VITE_API_URL=/api (non-secret)
+# Keep .env.example files
+
+# ── Logs ─────────────────────────────────────────
+*.log
+logs/
+backend/be.log
+frontend/vite.log
+
+# ── Claude Code internal ─────────────────────────
+.claude/
+
+# ── OS / Editor ───────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── TypeORM compiled ─────────────────────────────
+backend/dist/

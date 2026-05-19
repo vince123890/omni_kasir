@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════ SEO META TAGS ═══════════════════ -->
+  <title>Omni Kasir — Platform Kasir SaaS Multi-Toko untuk Bisnis Modern</title>
+  <meta name="description" content="Omni Kasir adalah platform kasir berbasis SaaS multi-tenant. Kelola semua toko dalam satu dashboard — transaksi real-time, manajemen stok otomatis, laporan lengkap. Mulai dari Rp99.000/bulan." />
+  <meta name="keywords" content="kasir online, aplikasi kasir, POS system, kasir multi toko, kasir SaaS, software kasir, manajemen stok, kasir warung, kasir retail, omni kasir" />
+  <meta name="author" content="Omni Kasir" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://omnikasir.com/" />
+
+  <!-- ═══════════════════ OPEN GRAPH / SOCIAL ═══════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omnikasir.com/" />
+  <meta property="og:title" content="Omni Kasir — Platform Kasir SaaS Multi-Toko" />
+  <meta property="og:description" content="Satu platform untuk semua toko Anda. Transaksi real-time, stok otomatis, laporan lengkap. Coba gratis sekarang." />
+  <meta property="og:image" content="https://omnikasir.com/og-image.png" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:site_name" content="Omni Kasir" />
+
+  <!-- ═══════════════════ TWITTER CARD ═══════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Omni Kasir — Platform Kasir SaaS Multi-Toko" />
+  <meta name="twitter:description" content="Satu platform untuk semua toko Anda. Transaksi real-time, stok otomatis, laporan lengkap." />
+  <meta name="twitter:image" content="https://omnikasir.com/og-image.png" />
+
+  <!-- ═══════════════════ STRUCTURED DATA ═══════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Omni Kasir",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Platform kasir SaaS multi-tenant untuk bisnis ritel dan warung dengan fitur multi-store, manajemen stok, dan laporan real-time.",
+    "url": "https://omnikasir.com",
+    "offers": [
+      { "@type": "Offer", "name": "Basic", "price": "99000", "priceCurrency": "IDR", "billingPeriod": "P1M" },
+      { "@type": "Offer", "name": "Pro", "price": "299000", "priceCurrency": "IDR", "billingPeriod": "P1M" },
+      { "@type": "Offer", "name": "Enterprise", "price": "699000", "priceCurrency": "IDR", "billingPeriod": "P1M" }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════ FONTS ═══════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════ CSS VARIABLES ═══════════════════ */
+    :root {
+      --bg-0: #080c10;
+      --bg-1: #0d1117;
+      --bg-2: #111820;
+      --bg-card: #141c27;
+      --bg-card-hover: #192233;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(16,213,152,0.35);
+
+      --emerald: #10d598;
+      --emerald-dim: #0ea87a;
+      --emerald-glow: rgba(16,213,152,0.15);
+      --emerald-glow-strong: rgba(16,213,152,0.25);
+      --teal: #06b6d4;
+      --gold: #f59e0b;
+
+      --text-primary: #f0f6ff;
+      --text-secondary: #8fa3bd;
+      --text-muted: #4a6278;
+
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.3);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ═══════════════════ RESET & BASE ═══════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-0);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ═══════════════════ UTILITY ═══════════════════ */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section--tight { padding: 72px 0; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--emerald-glow); border: 1px solid rgba(16,213,152,0.3);
+      color: var(--emerald); padding: 6px 14px; border-radius: 100px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800; line-height: 1.15;
+      color: var(--text-primary); margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--text-secondary); max-width: 600px;
+      margin-bottom: 48px; line-height: 1.8;
+    }
+    .highlight { color: var(--emerald); }
+
+    /* ═══════════════════ SCROLL ANIMATION ═══════════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ═══════════════════ NOISE TEXTURE ═══════════════════ */
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    /* ═══════════════════ NAVBAR ═══════════════════ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 16px 0;
+      transition: background var(--transition), backdrop-filter var(--transition), border-color var(--transition);
+      border-bottom: 1px solid transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(8,12,16,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom-color: var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-display); font-size: 20px; font-weight: 800;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: linear-gradient(135deg, var(--emerald), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 20px; height: 20px; }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-ghost {
+      padding: 9px 20px; border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 600; font-family: var(--font-body);
+      color: var(--text-secondary); border: 1px solid var(--border);
+      background: transparent; cursor: pointer;
+      transition: all var(--transition);
+    }
+    .btn-ghost:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
+    .btn-primary {
+      padding: 9px 22px; border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 700; font-family: var(--font-body);
+      color: #080c10; background: var(--emerald);
+      border: none; cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: 0 0 20px var(--emerald-glow);
+    }
+    .btn-primary:hover { background: #0dfaa8; box-shadow: 0 0 30px var(--emerald-glow-strong); transform: translateY(-1px); }
+    .btn-large {
+      padding: 14px 32px; font-size: 15px; border-radius: var(--radius);
+    }
+    .btn-outline-large {
+      padding: 14px 32px; font-size: 15px; border-radius: var(--radius);
+      border: 1.5px solid var(--border); color: var(--text-secondary);
+      background: transparent; cursor: pointer; font-family: var(--font-body); font-weight: 600;
+      transition: all var(--transition);
+    }
+    .btn-outline-large:hover { border-color: rgba(255,255,255,0.25); color: var(--text-primary); }
+
+    /* ═══════════════════ HERO ═══════════════════ */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 120px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 600px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(16,213,152,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute; bottom: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(6,182,212,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(16,213,152,0.08); border: 1px solid rgba(16,213,152,0.25);
+      color: var(--emerald); padding: 7px 16px; border-radius: 100px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 800; line-height: 1.07;
+      margin-bottom: 22px;
+    }
+    .hero-title .line-2 {
+      background: linear-gradient(90deg, var(--emerald) 0%, var(--teal) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 18px; color: var(--text-secondary);
+      line-height: 1.8; margin-bottom: 36px; max-width: 480px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .hero-trust {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 40px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-trust-avatars { display: flex; }
+    .hero-trust-avatars span {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2px solid var(--bg-0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      margin-left: -8px;
+    }
+    .hero-trust-avatars span:first-child { margin-left: 0; }
+    .av1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .av2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+    .av3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+    .av4 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+    .hero-trust-text { font-size: 13px; color: var(--text-secondary); }
+    .hero-trust-text strong { color: var(--text-primary); }
+
+    /* ═══════════════════ POS MOCKUP ═══════════════════ */
+    .mockup-wrapper {
+      position: relative; z-index: 1;
+    }
+    .mockup-glow {
+      position: absolute; inset: -40px;
+      background: radial-gradient(ellipse at center, rgba(16,213,152,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .pos-mockup {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+      position: relative;
+    }
+    .pos-header {
+      background: var(--bg-2); padding: 12px 16px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .pos-header-dots { display: flex; gap: 6px; }
+    .pos-header-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+    .pos-header-title { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+    .pos-header-status {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11px; color: var(--emerald);
+    }
+    .pos-header-status::before { content: '●'; font-size: 8px; }
+    .pos-body { display: grid; grid-template-columns: 1fr 1fr; }
+    .pos-products { padding: 16px; border-right: 1px solid var(--border); }
+    .pos-products-title { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+    .pos-product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .pos-product-card {
+      background: var(--bg-2); border-radius: 8px; padding: 10px;
+      cursor: pointer; transition: all var(--transition);
+      border: 1px solid transparent;
+    }
+    .pos-product-card.active { border-color: var(--emerald); background: rgba(16,213,152,0.08); }
+    .pos-product-card:hover { border-color: rgba(16,213,152,0.3); }
+    .pos-product-icon { width: 32px; height: 32px; border-radius: 6px; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .pos-product-name { font-size: 11px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+    .pos-product-price { font-size: 10px; color: var(--emerald); }
+    .pos-cart { padding: 16px; display: flex; flex-direction: column; }
+    .pos-cart-title { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+    .pos-cart-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); }
+    .pos-cart-item-name { font-size: 11px; color: var(--text-secondary); }
+    .pos-cart-item-qty { font-size: 11px; color: var(--text-muted); }
+    .pos-cart-item-price { font-size: 11px; color: var(--text-primary); font-weight: 600; }
+    .pos-cart-total { margin-top: 10px; padding-top: 8px; display: flex; justify-content: space-between; }
+    .pos-cart-total-label { font-size: 12px; color: var(--text-secondary); }
+    .pos-cart-total-value { font-size: 14px; font-weight: 800; color: var(--emerald); font-family: var(--font-display); }
+    .pos-pay-btn {
+      margin-top: 10px; background: var(--emerald); color: #080c10;
+      border: none; border-radius: 8px; padding: 9px;
+      font-size: 12px; font-weight: 700; width: 100%; cursor: pointer; font-family: var(--font-body);
+    }
+    .pos-footer-bar {
+      background: var(--bg-2); padding: 10px 16px;
+      display: flex; justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+    .pos-stat { text-align: center; }
+    .pos-stat-val { font-size: 13px; font-weight: 700; color: var(--emerald); font-family: var(--font-display); }
+    .pos-stat-lbl { font-size: 10px; color: var(--text-muted); }
+
+    /* Floating cards */
+    .float-card {
+      position: absolute; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 10px 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .float-card-1 {
+      top: -16px; right: -16px; animation-delay: 0s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .float-card-2 {
+      bottom: 60px; left: -20px; animation-delay: 1.5s;
+    }
+    .float-card-icon { width: 28px; height: 28px; border-radius: 6px; background: rgba(16,213,152,0.15); display: flex; align-items: center; justify-content: center; }
+    .float-card-text { font-size: 11px; }
+    .float-card-text strong { display: block; font-size: 12px; color: var(--text-primary); }
+    .float-card-text span { color: var(--text-muted); }
+    .float-mini-bar { display: flex; gap: 3px; margin-top: 4px; }
+    .mini-bar { height: 24px; width: 8px; border-radius: 3px; background: var(--emerald); opacity: 0.4; }
+    .mini-bar:nth-child(2) { height: 32px; opacity: 0.6; }
+    .mini-bar:nth-child(3) { height: 20px; opacity: 0.4; }
+    .mini-bar:nth-child(4) { height: 40px; opacity: 0.9; }
+    .mini-bar:nth-child(5) { height: 28px; opacity: 0.5; }
+
+    /* ═══════════════════ PROBLEM ═══════════════════ */
+    .problem { background: var(--bg-1); }
+    .problem-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .pain-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px; background: rgba(255,80,80,0.05);
+      border: 1px solid rgba(255,80,80,0.12);
+      border-radius: 10px;
+    }
+    .pain-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,80,80,0.1); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .pain-icon svg { width: 18px; height: 18px; color: #ff6b6b; }
+    .pain-text strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .pain-text span { font-size: 13px; color: var(--text-muted); }
+    .sol-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .sol-item { display: flex; align-items: flex-start; gap: 12px; }
+    .sol-check { width: 22px; height: 22px; border-radius: 50%; background: rgba(16,213,152,0.15); flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .sol-check svg { width: 12px; height: 12px; }
+    .sol-text { font-size: 15px; color: var(--text-secondary); }
+    .sol-text strong { color: var(--text-primary); }
+
+    /* ═══════════════════ FEATURES ═══════════════════ */
+    .features-header { text-align: center; }
+    .features-header .section-sub { margin: 0 auto 64px; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      transition: all var(--transition); position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--emerald), var(--teal));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .feature-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); transform: translateY(-3px); }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--emerald-glow); border: 1px solid rgba(16,213,152,0.2);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    }
+    .feature-icon svg { width: 24px; height: 24px; color: var(--emerald); }
+    .feature-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+    .feature-badge {
+      display: inline-block; margin-top: 12px;
+      background: rgba(16,213,152,0.1); color: var(--emerald);
+      font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px;
+    }
+
+    /* ═══════════════════ HOW IT WORKS ═══════════════════ */
+    .how { background: var(--bg-1); }
+    .how-header { text-align: center; }
+    .how-header .section-sub { margin: 0 auto 64px; }
+    .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+    .how-steps::before {
+      content: ''; position: absolute; top: 40px; left: 12.5%; right: 12.5%;
+      height: 1px; background: linear-gradient(90deg, transparent, var(--border), var(--emerald), var(--border), transparent);
+    }
+    .how-step { text-align: center; padding: 24px 16px; }
+    .how-step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--bg-card); border: 2px solid var(--emerald);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--emerald);
+      margin: 0 auto 20px; position: relative; z-index: 1;
+      box-shadow: 0 0 20px var(--emerald-glow);
+    }
+    .how-step h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .how-step p { font-size: 13px; color: var(--text-secondary); line-height: 1.75; }
+
+    /* ═══════════════════ STATS ═══════════════════ */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); border-radius: var(--radius); overflow: hidden; }
+    .stat-box { background: var(--bg-card); padding: 40px 24px; text-align: center; }
+    .stat-num { font-family: var(--font-display); font-size: 44px; font-weight: 800; color: var(--emerald); line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-size: 14px; color: var(--text-secondary); }
+    .stat-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ═══════════════════ ROLES ═══════════════════ */
+    .roles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .role-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; position: relative; overflow: hidden;
+      transition: all var(--transition);
+    }
+    .role-card:hover { transform: translateY(-3px); border-color: var(--border-hover); }
+    .role-badge {
+      display: inline-block; padding: 4px 10px; border-radius: 100px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .badge-admin { background: rgba(245,158,11,0.15); color: var(--gold); }
+    .badge-owner { background: rgba(16,213,152,0.15); color: var(--emerald); }
+    .badge-adminstore { background: rgba(6,182,212,0.15); color: var(--teal); }
+    .badge-kasir { background: rgba(139,92,246,0.15); color: #a78bfa; }
+    .role-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .role-card p { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.75; }
+    .role-perms { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .role-perms li { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
+    .role-perms li::before { content: '›'; color: var(--emerald); font-weight: 700; font-size: 14px; }
+
+    /* ═══════════════════ PRICING ═══════════════════ */
+    .pricing { background: var(--bg-1); }
+    .pricing-header { text-align: center; }
+    .pricing-header .section-sub { margin: 0 auto 64px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pricing-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
+      transition: all var(--transition);
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.popular {
+      border-color: var(--emerald);
+      background: linear-gradient(170deg, rgba(16,213,152,0.08) 0%, var(--bg-card) 50%);
+    }
+    .popular-badge {
+      position: absolute; top: 20px; right: 20px;
+      background: var(--emerald); color: #080c10;
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 100px; letter-spacing: 0.06em;
+    }
+    .pricing-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 12px; }
+    .pricing-price {
+      font-family: var(--font-display); font-size: 42px; font-weight: 800;
+      color: var(--text-primary); line-height: 1; margin-bottom: 4px;
+    }
+    .pricing-price .currency { font-size: 20px; color: var(--text-secondary); vertical-align: super; }
+    .pricing-period { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
+    .pricing-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .pricing-features li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--text-secondary);
+    }
+    .pricing-features li .chk { width: 18px; height: 18px; border-radius: 50%; background: rgba(16,213,152,0.15); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .pricing-features li .chk svg { width: 10px; height: 10px; }
+    .btn-subscribe {
+      width: 100%; padding: 13px; border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 700; font-family: var(--font-body); cursor: pointer;
+      transition: all var(--transition);
+    }
+    .btn-subscribe-outline {
+      background: transparent; border: 1.5px solid var(--border); color: var(--text-secondary);
+    }
+    .btn-subscribe-outline:hover { border-color: rgba(255,255,255,0.3); color: var(--text-primary); }
+    .btn-subscribe-filled {
+      background: var(--emerald); border: none; color: #080c10;
+      box-shadow: 0 0 24px var(--emerald-glow);
+    }
+    .btn-subscribe-filled:hover { background: #0dfaa8; box-shadow: 0 0 36px var(--emerald-glow-strong); }
+
+    /* ═══════════════════ FAQ ═══════════════════ */
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 960px; margin: 0 auto; }
+    .faq-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .faq-q {
+      padding: 18px 20px; font-size: 15px; font-weight: 600;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; gap: 12px; transition: background var(--transition);
+    }
+    .faq-q:hover { background: var(--bg-card-hover); }
+    .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--text-muted); transition: transform var(--transition); }
+    .faq-item.open .faq-q svg { transform: rotate(45deg); color: var(--emerald); }
+    .faq-a {
+      padding: 0 20px; max-height: 0; overflow: hidden;
+      font-size: 14px; color: var(--text-secondary); line-height: 1.8;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 20px 18px; }
+
+    /* ═══════════════════ FINAL CTA ═══════════════════ */
+    .cta-section {
+      background: linear-gradient(170deg, var(--bg-card) 0%, var(--bg-1) 100%);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      text-align: center; padding: 100px 0; position: relative; overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(16,213,152,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); font-weight: 800; margin-bottom: 16px; }
+    .cta-section p { font-size: 17px; color: var(--text-secondary); margin-bottom: 40px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+    /* ═══════════════════ FOOTER ═══════════════════ */
+    footer {
+      background: var(--bg-0); padding: 60px 0 32px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-top: 12px; max-width: 280px; }
+    .footer-col h4 { font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 14px; color: var(--text-muted); transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--emerald); }
+    .footer-bottom { padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: var(--text-muted); }
+    .footer-tech { display: flex; gap: 8px; align-items: center; }
+    .tech-tag { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); font-size: 11px; padding: 3px 9px; border-radius: 100px; }
+
+    /* ═══════════════════ HAMBURGER ═══════════════════ */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { width: 22px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: all var(--transition); }
+
+    /* ═══════════════════ RESPONSIVE ═══════════════════ */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .roles-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 72px 0; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-actions .btn-ghost { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .mockup-wrapper { display: none; }
+      .hero-title { font-size: 40px; }
+      .problem-inner { grid-template-columns: 1fr; gap: 48px; }
+      .how-steps { grid-template-columns: repeat(2, 1fr); }
+      .how-steps::before { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 32px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .features-grid { grid-template-columns: 1fr; }
+      .roles-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="5" width="20" height="16" rx="2" stroke="#080c10" stroke-width="2"/>
+              <path d="M2 10h20" stroke="#080c10" stroke-width="2"/>
+              <path d="M7 15h2M11 15h6" stroke="#080c10" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>Omni<span class="highlight">Kasir</span></span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#features">Fitur</a></li>
+          <li><a href="#how-it-works">Cara Kerja</a></li>
+          <li><a href="#roles">Peran</a></li>
+          <li><a href="#pricing">Harga</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="/login"><button class="btn-ghost">Masuk</button></a>
+          <a href="/subscribe"><button class="btn-primary">Mulai Gratis</button></a>
+          <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Copy -->
+        <div>
+          <div class="hero-badge reveal">
+            <span class="hero-badge-dot"></span>
+            Platform Kasir SaaS — Multi-Tenant &amp; Multi-Store
+          </div>
+          <h1 class="hero-title reveal reveal-delay-1">
+            Satu Platform,<br/>
+            <span class="line-2">Semua Toko</span><br/>
+            Anda.
+          </h1>
+          <p class="hero-desc reveal reveal-delay-2">
+            Omni Kasir hadir untuk pemilik bisnis ritel yang butuh sistem kasir terpusat — kelola banyak toko, banyak kasir, dan stok secara real-time dari satu dashboard.
+          </p>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="/subscribe"><button class="btn-primary btn-large">Mulai Gratis Sekarang</button></a>
+            <a href="#features"><button class="btn-outline-large">Lihat Fitur</button></a>
+          </div>
+          <div class="hero-trust reveal reveal-delay-4">
+            <div class="hero-trust-avatars">
+              <span class="av1">BU</span>
+              <span class="av2">AR</span>
+              <span class="av3">DH</span>
+              <span class="av4">SN</span>
+            </div>
+            <p class="hero-trust-text">Dipercaya <strong>500+ pemilik bisnis</strong> di seluruh Indonesia</p>
+          </div>
+        </div>
+
+        <!-- POS Mockup -->
+        <div class="mockup-wrapper reveal reveal-delay-2">
+          <div class="mockup-glow"></div>
+
+          <!-- Float card 1 -->
+          <div class="float-card float-card-1">
+            <div class="float-card-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="#10d598" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="float-card-text">
+              <strong>+Rp 2.450.000</strong>
+              <span>Omzet hari ini</span>
+            </div>
+          </div>
+
+          <!-- Float card 2 -->
+          <div class="float-card float-card-2">
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:4px;">Revenue Minggu Ini</div>
+            <div class="float-mini-bar">
+              <div class="mini-bar"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-bar"></div>
+            </div>
+          </div>
+
+          <div class="pos-mockup">
+            <div class="pos-header">
+              <div class="pos-header-dots">
+                <span class="dot-r"></span>
+                <span class="dot-y"></span>
+                <span class="dot-g"></span>
+              </div>
+              <div class="pos-header-title">Omni Kasir POS — Toko Utama</div>
+              <div class="pos-header-status">Kasir Aktif</div>
+            </div>
+            <div class="pos-body">
+              <!-- Products -->
+              <div class="pos-products">
+                <div class="pos-products-title">Produk</div>
+                <div class="pos-product-grid">
+                  <div class="pos-product-card active">
+                    <div class="pos-product-icon" style="background:rgba(16,213,152,0.1);">🥤</div>
+                    <div class="pos-product-name">Es Teh Manis</div>
+                    <div class="pos-product-price">Rp 5.000</div>
+                  </div>
+                  <div class="pos-product-card">
+                    <div class="pos-product-icon" style="background:rgba(245,158,11,0.1);">🍜</div>
+                    <div class="pos-product-name">Mie Goreng</div>
+                    <div class="pos-product-price">Rp 12.000</div>
+                  </div>
+                  <div class="pos-product-card">
+                    <div class="pos-product-icon" style="background:rgba(6,182,212,0.1);">☕</div>
+                    <div class="pos-product-name">Kopi Hitam</div>
+                    <div class="pos-product-price">Rp 7.000</div>
+                  </div>
+                  <div class="pos-product-card">
+                    <div class="pos-product-icon" style="background:rgba(139,92,246,0.1);">🍞</div>
+                    <div class="pos-product-name">Roti Bakar</div>
+                    <div class="pos-product-price">Rp 8.000</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Cart -->
+              <div class="pos-cart">
+                <div class="pos-cart-title">Keranjang</div>
+                <div class="pos-cart-item">
+                  <span class="pos-cart-item-name">Es Teh Manis</span>
+                  <span class="pos-cart-item-qty">×2</span>
+                  <span class="pos-cart-item-price">Rp 10.000</span>
+                </div>
+                <div class="pos-cart-item">
+                  <span class="pos-cart-item-name">Mie Goreng</span>
+                  <span class="pos-cart-item-qty">×1</span>
+                  <span class="pos-cart-item-price">Rp 12.000</span>
+                </div>
+                <div class="pos-cart-item">
+                  <span class="pos-cart-item-name">Kopi Hitam</span>
+                  <span class="pos-cart-item-qty">×1</span>
+                  <span class="pos-cart-item-price">Rp 7.000</span>
+                </div>
+                <div class="pos-cart-total">
+                  <span class="pos-cart-total-label">Total Bayar</span>
+                  <span class="pos-cart-total-value">Rp 29.000</span>
+                </div>
+                <button class="pos-pay-btn">💳 Bayar Sekarang</button>
+              </div>
+            </div>
+            <div class="pos-footer-bar">
+              <div class="pos-stat"><div class="pos-stat-val">47</div><div class="pos-stat-lbl">Transaksi Hari Ini</div></div>
+              <div class="pos-stat"><div class="pos-stat-val">Rp 842K</div><div class="pos-stat-lbl">Omzet Hari Ini</div></div>
+              <div class="pos-stat"><div class="pos-stat-val">3</div><div class="pos-stat-lbl">Toko Aktif</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       PROBLEM
+  ════════════════════════════════════════════════════ -->
+  <section class="section problem" id="problem">
+    <div class="container">
+      <div class="problem-inner">
+        <div class="reveal">
+          <div class="tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>
+            Masalah yang Kami Selesaikan
+          </div>
+          <h2 class="section-title">Apakah ini terasa familiar?</h2>
+          <ul class="pain-list">
+            <li class="pain-item">
+              <div class="pain-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#ff6b6b" stroke-width="2" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="pain-text">
+                <strong>Toko makin banyak, kelola makin ribet</strong>
+                <span>Harus buka banyak sistem berbeda untuk melihat performa tiap toko.</span>
+              </div>
+            </li>
+            <li class="pain-item">
+              <div class="pain-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" stroke="#ff6b6b" stroke-width="2"/><path d="M16 11h2M6 11h2" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="pain-text">
+                <strong>Stok hilang tanpa tahu ke mana</strong>
+                <span>Tidak ada pencatatan opname atau konversi satuan yang terstruktur.</span>
+              </div>
+            </li>
+            <li class="pain-item">
+              <div class="pain-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="#ff6b6b" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="pain-text">
+                <strong>Laporan makan waktu berjam-jam</strong>
+                <span>Rekap manual dari bon kertas dan catatan kasir yang tidak akurat.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <div class="tag" style="background:rgba(16,213,152,0.08); border-color:rgba(16,213,152,0.2);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Solusi Omni Kasir
+          </div>
+          <h2 class="section-title">Semua terkontrol, <span class="highlight">real-time.</span></h2>
+          <ul class="sol-list">
+            <li class="sol-item">
+              <div class="sol-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="sol-text"><strong>Dashboard terpusat</strong> — lihat semua toko, kasir, dan transaksi dalam satu layar</span>
+            </li>
+            <li class="sol-item">
+              <div class="sol-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="sol-text"><strong>Manajemen stok otomatis</strong> — opname, konversi satuan, dan alert stok menipis</span>
+            </li>
+            <li class="sol-item">
+              <div class="sol-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="sol-text"><strong>Akses berbasis peran</strong> — Owner, Admin Store, dan Kasir punya akses yang tepat</span>
+            </li>
+            <li class="sol-item">
+              <div class="sol-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="sol-text"><strong>Laporan instan</strong> — riwayat transaksi per kasir, per toko, dan per periode</span>
+            </li>
+            <li class="sol-item">
+              <div class="sol-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="sol-text"><strong>Multi-tenant aman</strong> — data bisnis Anda terisolasi penuh, tidak bocor ke tenant lain</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       FEATURES
+  ════════════════════════════════════════════════════ -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="features-header reveal">
+        <div class="tag" style="margin: 0 auto 20px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Fitur Lengkap
+        </div>
+        <h2 class="section-title">Semua yang Anda butuhkan,<br/><span class="highlight">sudah ada di dalamnya.</span></h2>
+        <p class="section-sub">Dari transaksi POS hingga opname stok, Omni Kasir menyediakan semua modul operasional untuk bisnis ritel Anda.</p>
+      </div>
+
+      <div class="features-grid">
+
+        <!-- 1 -->
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="15" r="1.5" fill="currentColor"/></svg>
+          </div>
+          <h3>POS Transaksi Real-Time</h3>
+          <p>Kasir pilih produk, sistem hitung total otomatis, bayar tunai. Transaksi tercatat langsung ke laporan pusat dalam hitungan detik.</p>
+          <span class="feature-badge">Sprint 1 MVP</span>
+        </div>
+
+        <!-- 2 -->
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Multi-Store Management</h3>
+          <p>Tambah banyak toko dalam satu akun bisnis. Setiap toko punya produk, kasir, dan stok sendiri yang terisolasi.</p>
+          <span class="feature-badge">Sprint 1 MVP</span>
+        </div>
+
+        <!-- 3 -->
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 12V22H4V12M22 7H2v5h20V7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Manajemen Stok Lengkap</h3>
+          <p>Input stok masuk dari supplier, opname manual per produk dengan alasan selisih, konversi satuan (dus→pcs), dan alert stok menipis otomatis.</p>
+          <span class="feature-badge">Sprint 1 MVP</span>
+        </div>
+
+        <!-- 4 -->
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Role-Based Access Control</h3>
+          <p>4 peran terpisah: Admin Platform, Owner (view-only), Admin Store (operasional), dan Kasir. Setiap aksi dikendalikan JWT + RBAC ketat.</p>
+          <span class="feature-badge">Keamanan Penuh</span>
+        </div>
+
+        <!-- 5 -->
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="20" x2="18" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="20" x2="6" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Dashboard &amp; Laporan</h3>
+          <p>Owner lihat performa semua toko sekaligus — total transaksi, omzet hari ini, kasir aktif. Filter laporan per toko, kasir, dan rentang tanggal.</p>
+          <span class="feature-badge">Sprint 1 MVP</span>
+        </div>
+
+        <!-- 6 -->
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Multi-Tenant Aman</h3>
+          <p>Isolasi data row-level via tenantId. Data bisnis Anda tidak pernah bocor ke tenant lain. JWT expired otomatis dalam 8 jam dengan refresh token 7 hari.</p>
+          <span class="feature-badge">Enterprise Grade</span>
+        </div>
+
+        <!-- 7 -->
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Riwayat Opname &amp; Konversi</h3>
+          <p>Lihat history lengkap setiap opname stok — expand detail per produk, selisih stok sistem vs fisik, alasan koreksi, dan siapa yang melakukan.</p>
+          <span class="feature-badge">Audit Trail</span>
+        </div>
+
+        <!-- 8 -->
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Subscription Plan Fleksibel</h3>
+          <p>Admin platform kelola 3 paket (Basic, Pro, Enterprise) — aktifkan, nonaktifkan, perpanjang, dan tandai "Paling Populer" langsung dari panel admin.</p>
+          <span class="feature-badge">SaaS Ready</span>
+        </div>
+
+        <!-- 9 -->
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Teknologi Modern &amp; Scalable</h3>
+          <p>Dibangun dengan ReactJS + NestJS + MySQL di Docker. Response time &lt;2 detik, target uptime 99%, siap deploy ke VPS atau cloud.</p>
+          <span class="feature-badge">Production Ready</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       HOW IT WORKS
+  ════════════════════════════════════════════════════ -->
+  <section class="section how" id="how-it-works">
+    <div class="container">
+      <div class="how-header reveal">
+        <div class="tag" style="margin: 0 auto 20px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Cara Kerja
+        </div>
+        <h2 class="section-title">Dari daftar hingga <span class="highlight">transaksi</span>,<br/>dalam 4 langkah.</h2>
+        <p class="section-sub">Setup cepat, langsung produktif. Tidak perlu keahlian teknis.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step reveal reveal-delay-1">
+          <div class="how-step-num">1</div>
+          <h3>Daftar &amp; Pilih Plan</h3>
+          <p>Owner daftarkan bisnis, pilih paket subscription yang sesuai, dan aktifkan akun melalui admin platform.</p>
+        </div>
+        <div class="how-step reveal reveal-delay-2">
+          <div class="how-step-num">2</div>
+          <h3>Tambah Toko &amp; Tim</h3>
+          <p>Buat profil setiap toko, tambahkan Admin Store dan Kasir. Setiap akun otomatis terikat ke toko yang ditugaskan.</p>
+        </div>
+        <div class="how-step reveal reveal-delay-3">
+          <div class="how-step-num">3</div>
+          <h3>Input Produk &amp; Stok</h3>
+          <p>Admin Store tambahkan produk, harga, satuan, dan stok awal. Atur threshold stok menipis per produk.</p>
+        </div>
+        <div class="how-step reveal reveal-delay-4">
+          <div class="how-step-num">4</div>
+          <h3>Mulai Bertransaksi</h3>
+          <p>Kasir login, buka POS, pilih produk, dan bayar. Semua transaksi langsung masuk ke laporan owner.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       STATS
+  ════════════════════════════════════════════════════ -->
+  <section class="section--tight">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-box">
+          <div class="stat-num counter" data-target="500">0</div>
+          <div class="stat-label">Bisnis Aktif</div>
+          <div class="stat-sub">di seluruh Indonesia</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num counter" data-target="4">0</div>
+          <div class="stat-label">Peran Pengguna</div>
+          <div class="stat-sub">dengan RBAC ketat</div>
+        </div>
+        <div class="stat-num-wrapper stat-box">
+          <div class="stat-num"><span class="counter" data-target="99">0</span>%</div>
+          <div class="stat-label">Target Uptime</div>
+          <div class="stat-sub">SLA guaranteed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">&lt;2<span style="font-size:20px;color:var(--text-secondary)">dtk</span></div>
+          <div class="stat-label">Response Time</div>
+          <div class="stat-sub">rata-rata API</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       ROLES
+  ════════════════════════════════════════════════════ -->
+  <section class="section" id="roles">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:48px;">
+        <div class="tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/></svg>
+          4 Peran Pengguna
+        </div>
+        <h2 class="section-title">Setiap orang punya <span class="highlight">akses yang tepat.</span></h2>
+        <p class="section-sub" style="max-width:520px;">Tidak ada overprivilege. Setiap role dirancang sesuai tanggung jawabnya.</p>
+      </div>
+      <div class="roles-grid">
+        <div class="role-card reveal reveal-delay-1">
+          <span class="role-badge badge-admin">Admin Platform</span>
+          <h3>Admin</h3>
+          <p>Pengelola platform Omni Kasir secara global — mengelola semua tenant dan subscription plan.</p>
+          <ul class="role-perms">
+            <li>Kelola subscription plan</li>
+            <li>Aktifkan / nonaktifkan tenant</li>
+            <li>Perpanjang subscription</li>
+            <li>Kelola akun admin lain</li>
+          </ul>
+        </div>
+        <div class="role-card reveal reveal-delay-2">
+          <span class="role-badge badge-owner">Owner</span>
+          <h3>Pemilik Bisnis</h3>
+          <p>Pemilik tenant — view dashboard, kelola store dan tim. Tidak ikut campur operasional harian.</p>
+          <ul class="role-perms">
+            <li>Lihat dashboard semua toko</li>
+            <li>Kelola toko (tambah/edit)</li>
+            <li>Tambah kasir &amp; admin store</li>
+            <li>Lihat riwayat transaksi</li>
+          </ul>
+        </div>
+        <div class="role-card reveal reveal-delay-3">
+          <span class="role-badge badge-adminstore">Admin Store</span>
+          <h3>Admin Toko</h3>
+          <p>Mengelola operasional satu toko — produk, stok, pembelian dari supplier. Terikat ke satu store.</p>
+          <ul class="role-perms">
+            <li>Kelola produk toko</li>
+            <li>Input stok masuk</li>
+            <li>Opname &amp; konversi stok</li>
+            <li>Lihat transaksi toko sendiri</li>
+          </ul>
+        </div>
+        <div class="role-card reveal reveal-delay-4">
+          <span class="role-badge badge-kasir">Kasir</span>
+          <h3>Kasir / Operator</h3>
+          <p>Operator transaksi di toko. Bisa melakukan POS penjualan, opname, dan konversi stok dasar.</p>
+          <ul class="role-perms">
+            <li>Transaksi POS penjualan</li>
+            <li>Opname stok manual</li>
+            <li>Konversi satuan stok</li>
+            <li>Lihat transaksi hari ini</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       PRICING
+  ════════════════════════════════════════════════════ -->
+  <section class="section pricing" id="pricing">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <div class="tag" style="margin: 0 auto 20px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Paket Harga
+        </div>
+        <h2 class="section-title">Mulai dari <span class="highlight">Rp99.000</span> saja.</h2>
+        <p class="section-sub">Pilih paket yang sesuai skala bisnis Anda. Upgrade kapan saja.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <!-- Basic -->
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-name">Basic</div>
+          <div class="pricing-price"><span class="currency">Rp </span>99.000</div>
+          <div class="pricing-period">per bulan · billed monthly</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 Toko Aktif</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>POS Transaksi Real-Time</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Manajemen Stok &amp; Opname</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Laporan Transaksi Dasar</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 Kasir per Toko</li>
+          </ul>
+          <a href="/subscribe?plan=basic"><button class="btn-subscribe btn-subscribe-outline">Pilih Basic</button></a>
+        </div>
+
+        <!-- Pro — Popular -->
+        <div class="pricing-card popular reveal reveal-delay-2">
+          <div class="popular-badge">⭐ Paling Populer</div>
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price"><span class="currency">Rp </span>299.000</div>
+          <div class="pricing-period">per bulan · billed monthly</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Hingga 5 Toko</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Semua fitur Basic</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Admin Store per Toko</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dashboard Performa Toko</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Laporan Lanjutan + Filter</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Kasir Tak Terbatas</li>
+          </ul>
+          <a href="/subscribe?plan=pro"><button class="btn-subscribe btn-subscribe-filled">Pilih Pro</button></a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card reveal reveal-delay-3">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price"><span class="currency">Rp </span>699.000</div>
+          <div class="pricing-period">per bulan · billed monthly</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Toko Tak Terbatas</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Semua fitur Pro</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Priority Support</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom Onboarding</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SLA Uptime 99%</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#10d598" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dedicated Account Manager</li>
+          </ul>
+          <a href="/subscribe?plan=enterprise"><button class="btn-subscribe btn-subscribe-outline">Pilih Enterprise</button></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════════════════ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:48px;">
+        <div class="tag" style="margin:0 auto 20px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>
+          FAQ
+        </div>
+        <h2 class="section-title">Pertanyaan yang <span class="highlight">sering ditanyakan.</span></h2>
+      </div>
+      <div class="faq-grid reveal">
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Apakah data bisnis saya aman dari tenant lain?
+            <svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="faq-a">Ya, 100% aman. Omni Kasir menggunakan row-level isolation via tenantId. Setiap query ke database otomatis difilter berdasarkan tenant Anda. Data bisnis A tidak pernah bisa diakses oleh bisnis B dalam kondisi apapun.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Berapa banyak toko yang bisa saya kelola?
+            <svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="faq-a">Tergantung paket. Basic mendukung 1 toko, Pro hingga 5 toko, dan Enterprise tidak terbatas. Upgrade atau downgrade bisa dilakukan kapan saja melalui admin platform.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Apakah kasir bisa login dari browser berbeda?
+            <svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="faq-a">Ya. Omni Kasir berbasis web — bisa diakses dari laptop, tablet, atau HP dengan browser modern (Chrome/Firefox). Satu akun kasir hanya terikat ke satu toko, sehingga tidak bisa akses toko lain.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Bagaimana jika stok kasir tidak sesuai fisik?
+            <svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="faq-a">Gunakan fitur Open Stok / Opname. Admin Store atau Kasir bisa input stok fisik per produk, sistem otomatis hitung selisih, lalu wajib isi alasan koreksi. Semua riwayat opname tersimpan dan bisa diaudit kapan saja.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Apakah ada biaya tambahan untuk kasir?
+            <svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="faq-a">Tidak ada biaya tambahan per kasir di paket Pro dan Enterprise. Jumlah kasir tidak dibatasi. Paket Basic memiliki batas 2 kasir per toko untuk menjaga performa sistem.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Bagaimana cara perpanjang subscription?
+            <svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="faq-a">Admin platform akan memperpanjang subscription Anda berdasarkan pembayaran. Owner akan menerima notifikasi alert di dashboard jika subscription tinggal 7 hari lagi — cukup hubungi admin untuk perpanjang.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       CTA FINAL
+  ════════════════════════════════════════════════════ -->
+  <section class="cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="reveal">
+        <h2>Siap kelola semua toko<br/><span class="highlight">dari satu tempat?</span></h2>
+        <p>Bergabung dengan ratusan pemilik bisnis yang sudah memercayakan operasional toko mereka kepada Omni Kasir.</p>
+        <div class="cta-actions">
+          <a href="/subscribe"><button class="btn-primary btn-large">Daftar Sekarang — Gratis</button></a>
+          <a href="/login"><button class="btn-outline-large">Sudah punya akun? Masuk</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" style="margin-bottom:0;">
+            <div class="nav-logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="5" width="20" height="16" rx="2" stroke="#080c10" stroke-width="2"/>
+                <path d="M2 10h20" stroke="#080c10" stroke-width="2"/>
+                <path d="M7 15h2M11 15h6" stroke="#080c10" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span>Omni<span class="highlight">Kasir</span></span>
+          </a>
+          <p>Platform kasir SaaS multi-tenant untuk bisnis ritel Indonesia. Satu platform untuk semua toko Anda.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Produk</h4>
+          <ul>
+            <li><a href="#features">Fitur</a></li>
+            <li><a href="#pricing">Harga</a></li>
+            <li><a href="#how-it-works">Cara Kerja</a></li>
+            <li><a href="#roles">Peran Pengguna</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Akun</h4>
+          <ul>
+            <li><a href="/login">Masuk</a></li>
+            <li><a href="/subscribe">Daftar / Subscribe</a></li>
+            <li><a href="/subscribe?plan=basic">Paket Basic</a></li>
+            <li><a href="/subscribe?plan=pro">Paket Pro</a></li>
+            <li><a href="/subscribe?plan=enterprise">Paket Enterprise</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Dukungan</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="mailto:hello@omnikasir.com">Hubungi Kami</a></li>
+            <li><a href="/privacy">Kebijakan Privasi</a></li>
+            <li><a href="/terms">Syarat Layanan</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Omni Kasir. Hak cipta dilindungi.</p>
+        <div class="footer-tech">
+          <span class="tech-tag">ReactJS</span>
+          <span class="tech-tag">NestJS</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">JWT</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════════════ -->
+  <script>
+    // ── Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ── Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = +el.dataset.target;
+          const duration = 1600;
+          const step = target / (duration / 16);
+          let current = 0;
+          const tick = () => {
+            current = Math.min(current + step, target);
+            el.textContent = Math.floor(current).toLocaleString('id-ID');
+            if (current < target) requestAnimationFrame(tick);
+            else el.textContent = target.toLocaleString('id-ID');
+          };
+          tick();
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    // ── FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ── Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ── Mobile hamburger (basic toggle)
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const visible = navLinks.style.display === 'flex';
+        navLinks.style.cssText = visible
+          ? 'display:none'
+          : 'display:flex; flex-direction:column; position:absolute; top:64px; left:0; right:0; background:rgba(8,12,16,0.97); border-bottom:1px solid rgba(255,255,255,0.07); padding:16px 24px; gap:16px; z-index:999; backdrop-filter:blur(20px);';
+      });
+    }
+  </script>
+
+</body>
+</html>

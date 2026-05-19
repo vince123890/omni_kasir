@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Omni Kasir — Platform Kasir SaaS Multi-Toko untuk Bisnis Modern</title>
+  <meta name="description" content="Omni Kasir adalah platform kasir berbasis SaaS multi-tenant. Kelola semua toko dalam satu dashboard — transaksi real-time, manajemen stok otomatis, laporan lengkap. Mulai dari Rp99.000/bulan." />
+  <meta name="keywords" content="kasir online, aplikasi kasir, POS system, kasir multi toko, kasir SaaS, software kasir, manajemen stok, kasir warung, kasir retail, omni kasir" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://omnikasir.id/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omnikasir.id/" />
+  <meta property="og:title" content="Omni Kasir — Platform Kasir SaaS Multi-Toko" />
+  <meta property="og:description" content="Satu platform untuk semua toko Anda. Transaksi real-time, stok otomatis, laporan lengkap. Mulai Rp99.000/bulan." />
+  <meta property="og:image" content="https://omnikasir.id/og-image.png" />
+  <meta property="og:locale" content="id_ID" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Omni Kasir — Platform Kasir SaaS Multi-Toko" />
+  <meta name="twitter:description" content="Satu platform untuk semua toko Anda. Transaksi real-time, stok otomatis, laporan lengkap." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Omni Kasir",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Platform kasir SaaS multi-tenant untuk bisnis ritel dan warung.",
+    "url": "https://omnikasir.id",
+    "offers": [
+      { "@type": "Offer", "name": "Basic",      "price": "99000",  "priceCurrency": "IDR" },
+      { "@type": "Offer", "name": "Pro",        "price": "299000", "priceCurrency": "IDR" },
+      { "@type": "Offer", "name": "Enterprise", "price": "699000", "priceCurrency": "IDR" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══ RESET & VARIABLES ══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    :root {
+      --bg-0:    #080a14;
+      --bg-1:    #0d0f1e;
+      --bg-2:    #111428;
+      --bg-card: #141728;
+      --bg-card-h: #181c30;
+      --border:  rgba(255,255,255,0.08);
+      --border-h: rgba(79,70,229,0.5);
+
+      --em:      #4f46e5;
+      --em-dim:  #4338ca;
+      --em-glow: rgba(79,70,229,0.14);
+      --em-glow2:rgba(79,70,229,0.28);
+      --teal:    #818cf8;
+      --gold:    #f59e0b;
+      --red:     #ff6b6b;
+
+      --text-1:  #eef0ff;
+      --text-2:  #8b9ac8;
+      --text-3:  #4a5480;
+
+      --font-d:  'Syne',    sans-serif;
+      --font-b:  'DM Sans', sans-serif;
+      --r:       14px;
+      --r-sm:    8px;
+      --t:       0.22s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    body {
+      font-family: var(--font-b);
+      background: var(--bg-0);
+      color: var(--text-1);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--font-b); cursor: pointer; }
+
+    /* noise overlay */
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+
+    /* ══ UTILS ══════════════════════════════════════════════════════ */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 96px 0; }
+    .section-alt { background: var(--bg-1); }
+    .highlight  { color: var(--teal); }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--em-glow); border: 1px solid rgba(79,70,229,0.32);
+      color: var(--teal); padding: 6px 15px; border-radius: 100px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: var(--font-d);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 800; line-height: 1.12; margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 16.5px; color: var(--text-2); max-width: 560px;
+      line-height: 1.8; margin-bottom: 52px;
+    }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; } .d4 { transition-delay: 0.32s; }
+
+    /* ══ BUTTONS ════════════════════════════════════════════════════ */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--em); color: #ffffff;
+      border: none; border-radius: var(--r-sm);
+      padding: 11px 24px; font-size: 14px; font-weight: 700;
+      transition: all var(--t);
+      box-shadow: 0 0 24px var(--em-glow);
+    }
+    .btn-primary:hover { background: #4338ca; transform: translateY(-1px); box-shadow: 0 0 36px var(--em-glow2); }
+    .btn-primary.large { padding: 14px 32px; font-size: 15px; border-radius: var(--r); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text-2);
+      border: 1px solid var(--border); border-radius: var(--r-sm);
+      padding: 11px 24px; font-size: 14px; font-weight: 600;
+      transition: all var(--t);
+    }
+    .btn-ghost:hover { color: var(--text-1); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
+    .btn-ghost.large { padding: 14px 28px; font-size: 15px; border-radius: var(--r); }
+
+    /* ══ NAVBAR ═════════════════════════════════════════════════════ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 14px 0;
+      transition: background var(--t), backdrop-filter var(--t), border-color var(--t);
+      border-bottom: 1px solid transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(8,10,20,0.92); backdrop-filter: blur(18px);
+      border-bottom-color: var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-d); font-size: 19px; font-weight: 800;
+    }
+    .nav-logo-mark {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: linear-gradient(135deg, #4f46e5, #818cf8);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .nav-logo-mark svg { width: 18px; height: 18px; color: #ffffff; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-2); transition: color var(--t); }
+    .nav-links a:hover { color: var(--text-1); }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px; color: var(--text-2); }
+    .hamburger svg { display: block; width: 18px; height: 18px; }
+
+    /* ══ HERO ════════════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 130px 0 90px; position: relative; overflow: hidden;
+    }
+    .hero-orb-1 {
+      position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 700px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(ellipse, rgba(79,70,229,0.1) 0%, transparent 68%);
+    }
+    .hero-orb-2 {
+      position: absolute; bottom: -80px; right: -80px;
+      width: 500px; height: 500px; pointer-events: none;
+      background: radial-gradient(ellipse, rgba(129,140,248,0.06) 0%, transparent 68%);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(79,70,229,0.1); border: 1px solid rgba(79,70,229,0.3);
+      color: var(--teal); padding: 7px 16px; border-radius: 100px;
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--em); animation: blink 2.2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero-title {
+      font-family: var(--font-d);
+      font-size: clamp(38px, 5.5vw, 66px);
+      font-weight: 800; line-height: 1.07; margin-bottom: 22px;
+    }
+    .hero-title .grad {
+      background: linear-gradient(95deg, #818cf8 0%, #4f46e5 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-desc { font-size: 17.5px; color: var(--text-2); line-height: 1.8; margin-bottom: 34px; max-width: 460px; }
+    .hero-cta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .hero-note { font-size: 12px; color: var(--text-3); margin-top: 14px; }
+    .hero-social {
+      display: flex; align-items: center; gap: 12px;
+      margin-top: 38px; padding-top: 28px; border-top: 1px solid var(--border);
+    }
+    .hero-avs { display: flex; }
+    .hero-avs span {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 2.5px solid var(--bg-0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; margin-left: -8px;
+    }
+    .hero-avs span:first-child { margin-left: 0; }
+    .av1{background:linear-gradient(135deg,#667eea,#764ba2)}
+    .av2{background:linear-gradient(135deg,#f093fb,#f5576c)}
+    .av3{background:linear-gradient(135deg,#4facfe,#00f2fe)}
+    .av4{background:linear-gradient(135deg,#43e97b,#38f9d7)}
+    .hero-social p { font-size: 13px; color: var(--text-2); }
+    .hero-social strong { color: var(--text-1); }
+
+    /* ── POS Mockup ── */
+    .mockup-wrap { position: relative; }
+    .mockup-glow {
+      position: absolute; inset: -48px; pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(79,70,229,0.12) 0%, transparent 68%);
+    }
+    .pos-shell {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+    }
+    .pos-titlebar {
+      background: var(--bg-2); padding: 11px 16px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .win-dots { display: flex; gap: 6px; }
+    .win-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .wd-r{background:#ff5f57} .wd-y{background:#febc2e} .wd-g{background:#28c840}
+    .pos-titlebar-name { font-size: 11.5px; color: var(--text-3); font-weight: 500; }
+    .pos-live { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--em); }
+    .pos-live::before { content:'●'; font-size: 7px; }
+    .pos-body { display: grid; grid-template-columns: 55% 45%; }
+    .pos-products { padding: 14px; border-right: 1px solid var(--border); }
+    .pos-label { font-size: 10.5px; color: var(--text-3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; }
+    .pos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .pos-item {
+      background: var(--bg-2); border-radius: 8px; padding: 10px;
+      border: 1px solid transparent; transition: border-color var(--t);
+    }
+    .pos-item.sel { border-color: var(--em); background: rgba(79,70,229,0.1); }
+    .pos-item-ico { width: 28px; height: 28px; border-radius: 6px; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+    .pos-item-name { font-size: 10.5px; font-weight: 600; margin-bottom: 2px; }
+    .pos-item-price { font-size: 10px; color: var(--em); }
+    .pos-cart { padding: 14px; display: flex; flex-direction: column; }
+    .pos-cart-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--border); }
+    .pos-cart-row-name { font-size: 10.5px; color: var(--text-2); }
+    .pos-cart-row-price { font-size: 10.5px; color: var(--text-1); font-weight: 600; }
+    .pos-total { margin-top: 10px; padding-top: 8px; display: flex; justify-content: space-between; }
+    .pos-total-val { font-size: 13px; font-weight: 800; color: var(--em); font-family: var(--font-d); }
+    .pos-pay { margin-top: 9px; background: var(--em); color: #ffffff; border: none; border-radius: 7px; padding: 8px; font-size: 11.5px; font-weight: 700; width: 100%; }
+    .pos-footer { background: var(--bg-2); padding: 9px 14px; display: flex; justify-content: space-around; border-top: 1px solid var(--border); }
+    .pos-stat-v { font-size: 12px; font-weight: 700; color: var(--em); font-family: var(--font-d); }
+    .pos-stat-l { font-size: 9.5px; color: var(--text-3); }
+
+    /* floating cards */
+    .fc {
+      position: absolute; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 10px 14px; box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+    }
+    .fc-1 { top: -14px; right: -14px; display: flex; align-items: center; gap: 9px; animation: flt 4s ease-in-out infinite; }
+    .fc-2 { bottom: 52px; left: -18px; animation: flt 4s ease-in-out infinite 1.6s; }
+    @keyframes flt { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .fc-ico { width: 28px; height: 28px; border-radius: 6px; background: rgba(79,70,229,0.18); display: flex; align-items: center; justify-content: center; }
+    .fc-ico svg { width: 14px; height: 14px; color: var(--em); }
+    .fc-text strong { display: block; font-size: 12px; color: var(--text-1); }
+    .fc-text span { font-size: 10.5px; color: var(--text-3); }
+    .mini-bars { display: flex; gap: 3px; margin-top: 5px; align-items: flex-end; }
+    .mb { width: 7px; border-radius: 2px 2px 0 0; background: var(--em); }
+
+    /* ══ PROBLEM / SOLUTION ═════════════════════════════════════════ */
+    .prob-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+    .pain-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 15px; background: rgba(255,80,80,0.05);
+      border: 1px solid rgba(255,80,80,0.11); border-radius: 10px;
+    }
+    .pain-ico { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,80,80,0.1); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .pain-ico svg { width: 17px; height: 17px; color: var(--red); }
+    .pain-txt strong { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 2px; }
+    .pain-txt span { font-size: 12.5px; color: var(--text-3); }
+    .sol-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .sol-item { display: flex; align-items: flex-start; gap: 12px; }
+    .sol-chk { width: 22px; height: 22px; border-radius: 50%; background: rgba(79,70,229,0.18); flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .sol-chk svg { width: 11px; height: 11px; color: var(--em); }
+    .sol-txt { font-size: 14.5px; color: var(--text-2); }
+    .sol-txt strong { color: var(--text-1); }
+
+    /* ══ FEATURES ═══════════════════════════════════════════════════ */
+    .feat-head { text-align: center; }
+    .feat-head .section-sub { margin: 0 auto 56px; }
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .feat-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 26px; position: relative; overflow: hidden;
+      transition: all var(--t);
+    }
+    .feat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, #4f46e5, #818cf8);
+      transform: scaleX(0); transform-origin: left; transition: transform var(--t);
+    }
+    .feat-card:hover { border-color: var(--border-h); background: var(--bg-card-h); transform: translateY(-3px); }
+    .feat-card:hover::before { transform: scaleX(1); }
+    .feat-ico {
+      width: 46px; height: 46px; border-radius: 11px;
+      background: var(--em-glow); border: 1px solid rgba(79,70,229,0.25);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    .feat-ico svg { width: 22px; height: 22px; color: var(--em); }
+    .feat-card h3 { font-family: var(--font-d); font-size: 16px; font-weight: 700; margin-bottom: 9px; }
+    .feat-card p { font-size: 13.5px; color: var(--text-2); line-height: 1.75; }
+    .feat-pill {
+      display: inline-block; margin-top: 12px;
+      background: rgba(79,70,229,0.14); color: var(--teal);
+      font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 100px;
+    }
+
+    /* ══ HOW IT WORKS ═══════════════════════════════════════════════ */
+    .how-head { text-align: center; }
+    .how-head .section-sub { margin: 0 auto 56px; }
+    .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
+    .how-steps::before {
+      content: ''; position: absolute; top: 38px; left: 12.5%; right: 12.5%;
+      height: 1px; background: linear-gradient(90deg, transparent, var(--border), #4f46e5, var(--border), transparent);
+    }
+    .how-step { text-align: center; padding: 20px 14px; }
+    .how-num {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--bg-card); border: 2px solid var(--em);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-size: 20px; font-weight: 800; color: var(--teal);
+      margin: 0 auto 18px; position: relative; z-index: 1;
+      box-shadow: 0 0 20px var(--em-glow);
+    }
+    .how-step h3 { font-family: var(--font-d); font-size: 15.5px; font-weight: 700; margin-bottom: 9px; }
+    .how-step p { font-size: 13px; color: var(--text-2); line-height: 1.75; }
+
+    /* ══ STATS ══════════════════════════════════════════════════════ */
+    .stats-wrap {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; background: var(--border);
+      border-radius: var(--r); overflow: hidden;
+    }
+    .stat-box { background: var(--bg-card); padding: 38px 22px; text-align: center; }
+    .stat-n { font-family: var(--font-d); font-size: 42px; font-weight: 800; color: var(--em); line-height: 1; margin-bottom: 8px; }
+    .stat-l { font-size: 14px; color: var(--text-2); }
+    .stat-s { font-size: 11.5px; color: var(--text-3); margin-top: 4px; }
+
+    /* ══ ROLES ══════════════════════════════════════════════════════ */
+    .roles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .role-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 22px; position: relative; overflow: hidden;
+      transition: border-color var(--t);
+    }
+    .role-card:hover { border-color: var(--border-h); }
+    .role-badge {
+      display: inline-block; font-size: 10.5px; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 14px;
+    }
+    .rb-admin { background: rgba(239,68,68,0.12); color: #f87171; }
+    .rb-owner { background: rgba(245,158,11,0.12); color: #fbbf24; }
+    .rb-store  { background: rgba(129,140,248,0.14); color: #a5b4fc; }
+    .rb-kasir  { background: rgba(79,70,229,0.14);  color: var(--teal); }
+    .role-card h3 { font-family: var(--font-d); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .role-card > p { font-size: 13px; color: var(--text-2); line-height: 1.7; margin-bottom: 14px; }
+    .role-perms { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .role-perms li { font-size: 12.5px; color: var(--text-3); padding-left: 14px; position: relative; }
+    .role-perms li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; font-size: 11px; }
+
+    /* ══ PRICING ═════════════════════════════════════════════════════ */
+    .pricing-head { text-align: center; }
+    .pricing-head .section-sub { margin: 0 auto 52px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: start; }
+    .price-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 32px 28px;
+      transition: transform var(--t), border-color var(--t);
+    }
+    .price-card:hover { transform: translateY(-4px); border-color: var(--border-h); }
+    .price-card.popular {
+      border-color: var(--em); background: var(--bg-card-h);
+      position: relative;
+    }
+    .popular-tag {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--em); color: #ffffff;
+      font-size: 11px; font-weight: 800; padding: 4px 16px; border-radius: 100px;
+    }
+    .price-plan { font-family: var(--font-d); font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .price-desc { font-size: 13px; color: var(--text-2); margin-bottom: 24px; line-height: 1.65; }
+    .price-amount { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+    .price-rp { font-size: 20px; font-weight: 700; color: var(--text-2); }
+    .price-num { font-family: var(--font-d); font-size: 46px; font-weight: 800; color: var(--text-1); line-height: 1; }
+    .price-period { font-size: 14px; color: var(--text-3); }
+    .price-per { font-size: 12px; color: var(--text-3); margin-bottom: 26px; }
+    .price-divider { height: 1px; background: var(--border); margin: 24px 0; }
+    .price-feats { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
+    .price-feats li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--text-2); }
+    .pf-chk { width: 18px; height: 18px; border-radius: 50%; background: rgba(79,70,229,0.18); flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .pf-chk svg { width: 10px; height: 10px; color: var(--em); }
+    .price-feats li.pf-muted { color: var(--text-3); }
+    .price-feats li.pf-muted .pf-chk { background: rgba(255,255,255,0.04); }
+    .price-feats li.pf-muted .pf-chk svg { color: var(--text-3); }
+    .btn-subscribe {
+      width: 100%; padding: 12px; border-radius: var(--r-sm);
+      font-size: 14px; font-weight: 700; border: none;
+      background: var(--em); color: #ffffff;
+      transition: all var(--t); cursor: pointer;
+      box-shadow: 0 0 20px var(--em-glow);
+    }
+    .btn-subscribe:hover { background: #4338ca; box-shadow: 0 0 32px var(--em-glow2); }
+    .btn-subscribe.outline {
+      background: transparent; color: var(--text-2);
+      border: 1.5px solid var(--border); box-shadow: none;
+    }
+    .btn-subscribe.outline:hover { border-color: rgba(255,255,255,0.22); color: var(--text-1); background: rgba(255,255,255,0.03); }
+    .pricing-note { text-align: center; margin-top: 32px; font-size: 13px; color: var(--text-3); }
+
+    /* ══ TESTIMONIALS ═══════════════════════════════════════════════ */
+    .testi-head { text-align: center; }
+    .testi-head .section-sub { margin: 0 auto 52px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .testi-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 26px;
+      transition: border-color var(--t);
+    }
+    .testi-card:hover { border-color: var(--border-h); }
+    .testi-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .testi-stars span { color: var(--gold); font-size: 14px; }
+    .testi-text { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 18px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-ava { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; flex-shrink: 0; }
+    .testi-name { font-size: 14px; font-weight: 700; }
+    .testi-role { font-size: 12px; color: var(--text-3); }
+
+    /* ══ FAQ ════════════════════════════════════════════════════════ */
+    .faq-head { text-align: center; }
+    .faq-head .section-sub { margin: 0 auto 52px; }
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
+      transition: border-color var(--t);
+    }
+    .faq-item:hover, .faq-item.open { border-color: rgba(79,70,229,0.35); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 18px 22px; cursor: pointer; background: none; border: none;
+      width: 100%; text-align: left; color: var(--text-1); font-size: 15px; font-weight: 600;
+    }
+    .faq-icon { width: 22px; height: 22px; border-radius: 50%; background: rgba(79,70,229,0.18); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: transform var(--t); }
+    .faq-icon svg { width: 12px; height: 12px; color: var(--em); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding var(--t); }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a-inner { padding: 0 22px 18px; font-size: 14px; color: var(--text-2); line-height: 1.8; }
+
+    /* ══ CTA BANNER ═════════════════════════════════════════════════ */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(79,70,229,0.08) 0%, rgba(129,140,248,0.04) 100%);
+      border: 1px solid rgba(79,70,229,0.22); border-radius: 20px;
+      padding: 64px 48px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(ellipse, rgba(79,70,229,0.1) 0%, transparent 68%);
+    }
+    .cta-banner h2 { font-family: var(--font-d); font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 14px; }
+    .cta-banner p { font-size: 16px; color: var(--text-2); margin-bottom: 34px; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .cta-meta { margin-top: 18px; font-size: 12.5px; color: var(--text-3); display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; }
+    .cta-meta span { display: flex; align-items: center; gap: 5px; }
+    .cta-meta svg { width: 13px; height: 13px; color: var(--em); }
+
+    /* ══ FOOTER ═════════════════════════════════════════════════════ */
+    footer { background: var(--bg-1); border-top: 1px solid var(--border); padding: 56px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .nav-logo { margin-bottom: 14px; }
+    .footer-brand p { font-size: 13.5px; color: var(--text-2); line-height: 1.75; max-width: 280px; }
+    .footer-col h4 { font-family: var(--font-d); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 13.5px; color: var(--text-2); transition: color var(--t); }
+    .footer-col a:hover { color: var(--teal); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--border); }
+    .footer-copy { font-size: 13px; color: var(--text-3); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 13px; color: var(--text-3); transition: color var(--t); }
+    .footer-legal a:hover { color: var(--text-2); }
+
+    /* ══ RESPONSIVE ═════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .roles-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-right .btn-ghost { display: none; }
+      .hamburger { display: flex; align-items: center; justify-content: center; }
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .mockup-wrap { display: none; }
+      .prob-grid { grid-template-columns: 1fr; gap: 40px; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: repeat(2, 1fr); }
+      .how-steps::before { display: none; }
+      .stats-wrap { grid-template-columns: repeat(2, 1fr); }
+      .roles-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .cta-banner { padding: 44px 24px; }
+      .section { padding: 72px 0; }
+      .nav-mobile { display: flex; flex-direction: column; gap: 14px; position: absolute; top: 62px; left: 0; right: 0; background: rgba(8,10,20,0.96); backdrop-filter: blur(18px); padding: 20px 24px; border-bottom: 1px solid var(--border); z-index: 998; }
+      .nav-mobile a { font-size: 15px; color: var(--text-2); font-weight: 500; }
+      .hero-title { font-size: clamp(34px, 9vw, 52px); }
+    }
+    @media (max-width: 480px) {
+      .stats-wrap { grid-template-columns: 1fr 1fr; }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Omni Kasir Home">
+        <div class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
+        Omni Kasir
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#fitur">Fitur</a></li>
+        <li><a href="#cara-kerja">Cara Kerja</a></li>
+        <li><a href="#harga">Harga</a></li>
+        <li><a href="#testimonial">Testimoni</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="/app/login"><button class="btn-ghost">Masuk</button></a>
+        <a href="/app/login?ref=coba"><button class="btn-primary">Coba Gratis</button></a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb-2" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- copy -->
+      <div>
+        <div class="hero-badge">
+          <span class="hero-dot"></span>
+          Platform Kasir Generasi Baru
+        </div>
+        <h1 class="hero-title">
+          Satu Platform.<br>
+          <span class="grad">Semua Toko.</span><br>
+          Satu Dashboard.
+        </h1>
+        <p class="hero-desc">
+          Omni Kasir adalah sistem kasir berbasis SaaS multi-tenant. Kelola kasir, stok, dan laporan dari semua toko dalam satu tempat — real-time, aman, dan scalable.
+        </p>
+        <div class="hero-cta">
+          <a href="/app/login?ref=coba"><button class="btn-primary large">
+            Mulai Gratis 14 Hari
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button></a>
+          <a href="#fitur"><button class="btn-ghost large">Lihat Fitur</button></a>
+        </div>
+        <p class="hero-note">✓ Tidak perlu kartu kredit &nbsp;·&nbsp; ✓ Setup 5 menit &nbsp;·&nbsp; ✓ Batalkan kapan saja</p>
+
+        <div class="hero-social">
+          <div class="hero-avs" aria-hidden="true">
+            <span class="av1">BS</span>
+            <span class="av2">SR</span>
+            <span class="av3">DK</span>
+            <span class="av4">AP</span>
+          </div>
+          <p>Dipercaya <strong>500+ bisnis</strong> di seluruh Indonesia</p>
+        </div>
+      </div>
+
+      <!-- mockup -->
+      <div class="mockup-wrap" aria-hidden="true">
+        <div class="mockup-glow"></div>
+        <div class="pos-shell">
+          <div class="pos-titlebar">
+            <div class="win-dots">
+              <span class="wd-r"></span><span class="wd-y"></span><span class="wd-g"></span>
+            </div>
+            <span class="pos-titlebar-name">Omni Kasir — Toko Pusat Sudirman</span>
+            <span class="pos-live">Shift Aktif</span>
+          </div>
+          <div class="pos-body">
+            <div class="pos-products">
+              <div class="pos-label">Produk</div>
+              <div class="pos-grid">
+                <div class="pos-item sel">
+                  <div class="pos-item-ico" style="background:rgba(79,70,229,0.12)">💧</div>
+                  <div class="pos-item-name">Aqua 600ml</div>
+                  <div class="pos-item-price">Rp 3.500</div>
+                </div>
+                <div class="pos-item">
+                  <div class="pos-item-ico" style="background:rgba(245,158,11,0.1)">🍜</div>
+                  <div class="pos-item-name">Indomie Goreng</div>
+                  <div class="pos-item-price">Rp 3.500</div>
+                </div>
+                <div class="pos-item">
+                  <div class="pos-item-ico" style="background:rgba(239,68,68,0.1)">🍫</div>
+                  <div class="pos-item-name">Beng-beng</div>
+                  <div class="pos-item-price">Rp 2.500</div>
+                </div>
+                <div class="pos-item">
+                  <div class="pos-item-ico" style="background:rgba(167,139,250,0.1)">☕</div>
+                  <div class="pos-item-name">Kopi Kapal Api</div>
+                  <div class="pos-item-price">Rp 7.000</div>
+                </div>
+              </div>
+            </div>
+            <div class="pos-cart">
+              <div class="pos-label">Keranjang</div>
+              <div class="pos-cart-row">
+                <span class="pos-cart-row-name">Aqua 600ml ×2</span>
+                <span class="pos-cart-row-price">Rp 7.000</span>
+              </div>
+              <div class="pos-cart-row">
+                <span class="pos-cart-row-name">Indomie ×2</span>
+                <span class="pos-cart-row-price">Rp 7.000</span>
+              </div>
+              <div class="pos-cart-row">
+                <span class="pos-cart-row-name">Beng-beng ×2</span>
+                <span class="pos-cart-row-price">Rp 5.000</span>
+              </div>
+              <div class="pos-total">
+                <span style="font-size:11px;color:var(--text-2)">Total</span>
+                <span class="pos-total-val">Rp 19.000</span>
+              </div>
+              <button class="pos-pay">Bayar Sekarang</button>
+            </div>
+          </div>
+          <div class="pos-footer">
+            <div><div class="pos-stat-v">5</div><div class="pos-stat-l">Trx Hari Ini</div></div>
+            <div><div class="pos-stat-v">Rp 106rb</div><div class="pos-stat-l">Omzet</div></div>
+            <div><div class="pos-stat-v">12</div><div class="pos-stat-l">Produk</div></div>
+          </div>
+        </div>
+
+        <!-- floating cards -->
+        <div class="fc fc-1">
+          <div class="fc-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <div class="fc-text">
+            <strong>+18% Omzet</strong>
+            <span>vs. bulan lalu</span>
+          </div>
+        </div>
+        <div class="fc fc-2">
+          <div style="font-size:11px;color:var(--text-3);margin-bottom:5px;font-weight:600;">Stok Real-Time</div>
+          <div class="mini-bars">
+            <div class="mb" style="height:18px;opacity:.4"></div>
+            <div class="mb" style="height:28px;opacity:.6"></div>
+            <div class="mb" style="height:14px;opacity:.4"></div>
+            <div class="mb" style="height:38px;opacity:.9"></div>
+            <div class="mb" style="height:22px;opacity:.5"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     PROBLEM / SOLUTION
+══════════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="prob-grid">
+      <div class="reveal">
+        <div class="tag">Masalah Nyata</div>
+        <h2 class="section-title">Kelola banyak toko<br>itu <span class="highlight">melelahkan.</span></h2>
+        <ul class="pain-list">
+          <li class="pain-item">
+            <div class="pain-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <div class="pain-txt"><strong>Data toko berserakan</strong><span>Laporan toko A ada di Excel, toko B di buku tulis. Susah rekap omzet total.</span></div>
+          </li>
+          <li class="pain-item">
+            <div class="pain-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="pain-txt"><strong>Stok tidak terpantau</strong><span>Barang habis baru ketahuan saat pelanggan mau beli. Kehilangan penjualan setiap hari.</span></div>
+          </li>
+          <li class="pain-item">
+            <div class="pain-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="pain-txt"><strong>Rekap manual makan waktu</strong><span>Owner harus pergi ke tiap toko untuk rekap. Tidak bisa pantau dari rumah.</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="reveal d2">
+        <div class="tag" style="background:rgba(79,70,229,0.1);border-color:rgba(79,70,229,0.28)">Solusi Omni Kasir</div>
+        <h2 class="section-title">Semua terpusat,<br><span class="highlight">semua terkontrol.</span></h2>
+        <ul class="sol-list">
+          <li class="sol-item">
+            <div class="sol-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="sol-txt"><strong>Dashboard terpusat</strong> — pantau semua toko, semua kasir, semua transaksi dari satu layar.</div>
+          </li>
+          <li class="sol-item">
+            <div class="sol-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="sol-txt"><strong>Stok real-time</strong> — alert otomatis saat stok menipis, tidak ada lagi barang habis tak terduga.</div>
+          </li>
+          <li class="sol-item">
+            <div class="sol-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="sol-txt"><strong>RBAC ketat</strong> — kasir hanya akses POS, admin store kelola produk, owner view laporan. Tidak ada data bocor.</div>
+          </li>
+          <li class="sol-item">
+            <div class="sol-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="sol-txt"><strong>Multi-tenant isolasi penuh</strong> — data bisnis Anda tidak pernah bercampur dengan bisnis lain.</div>
+          </li>
+          <li class="sol-item">
+            <div class="sol-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="sol-txt"><strong>Akses dari mana saja</strong> — web-based, tidak perlu install. Buka dari HP, laptop, atau tablet.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     FEATURES
+══════════════════════════════════════════════ -->
+<section class="section" id="fitur">
+  <div class="container">
+    <div class="feat-head reveal">
+      <div class="tag">Fitur Lengkap</div>
+      <h2 class="section-title">Semua yang Anda butuhkan,<br>sudah <span class="highlight">tersedia.</span></h2>
+      <p class="section-sub">Tidak perlu integrasi tambahan. Omni Kasir hadir dengan semua fitur operasional toko dalam satu paket.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal d1">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>POS Transaksi</h3>
+        <p>Tampilan kasir yang bersih dan cepat. Cari produk, tambah ke keranjang, hitung kembalian otomatis. Dirancang untuk kecepatan.</p>
+        <span class="feat-pill">Race Condition Safe</span>
+      </div>
+      <div class="feat-card reveal d2">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <h3>Manajemen Stok</h3>
+        <p>Stok masuk, konversi satuan (dus → pcs), open stok / opname dengan alasan selisih. Riwayat lengkap setiap pergerakan stok.</p>
+        <span class="feat-pill">BL-013 Compliant</span>
+      </div>
+      <div class="feat-card reveal d3">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3>Laporan & Dashboard</h3>
+        <p>Dashboard owner tampil omzet semua toko, transaksi hari ini, kasir aktif. Filter per store, per kasir, per tanggal.</p>
+        <span class="feat-pill">Real-time</span>
+      </div>
+      <div class="feat-card reveal d1">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Multi Kasir & Toko</h3>
+        <p>Tambah kasir dan admin store per toko, batasi sesuai plan. Owner kelola semua toko, kasir hanya akses toko sendiri.</p>
+        <span class="feat-pill">RBAC 4 Role</span>
+      </div>
+      <div class="feat-card reveal d2">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <h3>Keamanan JWT</h3>
+        <p>Access token 8 jam, refresh token 7 hari. Setiap request divalidasi role dan tenantId. Data terisolasi per bisnis.</p>
+        <span class="feat-pill">Stateless JWT</span>
+      </div>
+      <div class="feat-card reveal d3">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Teknologi Modern</h3>
+        <p>ReactJS + NestJS + MySQL + Docker. Response API &lt;2 detik. Siap deploy ke VPS atau cloud. Open untuk kustomisasi.</p>
+        <span class="feat-pill">Production Ready</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════════════ -->
+<section class="section section-alt" id="cara-kerja">
+  <div class="container">
+    <div class="how-head reveal">
+      <div class="tag">Cara Kerja</div>
+      <h2 class="section-title">Mulai dalam <span class="highlight">5 menit.</span></h2>
+      <p class="section-sub">Tidak perlu instalasi, tidak perlu konfigurasi server. Daftar, isi data bisnis, langsung pakai.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal d1">
+        <div class="how-num">1</div>
+        <h3>Daftar & Pilih Plan</h3>
+        <p>Pilih Basic, Pro, atau Enterprise sesuai jumlah toko dan kasir Anda. Bayar bulanan, batalkan kapan saja.</p>
+      </div>
+      <div class="how-step reveal d2">
+        <div class="how-num">2</div>
+        <h3>Setup Toko & Produk</h3>
+        <p>Tambahkan toko, input produk beserta harga dan stok awal. Admin Store Anda siap menggunakan dalam hitungan menit.</p>
+      </div>
+      <div class="how-step reveal d3">
+        <div class="how-num">3</div>
+        <h3>Undang Tim Kasir</h3>
+        <p>Buat akun kasir dan admin store per toko. Mereka langsung bisa login dan mulai transaksi dari browser manapun.</p>
+      </div>
+      <div class="how-step reveal d4">
+        <div class="how-num">4</div>
+        <h3>Pantau dari Dashboard</h3>
+        <p>Sebagai Owner, lihat omzet semua toko real-time. Laporan transaksi, riwayat stok, semua dalam satu halaman.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     STATS
+══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="stats-wrap reveal">
+      <div class="stat-box">
+        <div class="stat-n"><span class="counter" data-target="500">0</span>+</div>
+        <div class="stat-l">Bisnis Aktif</div>
+        <div class="stat-s">di seluruh Indonesia</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n"><span class="counter" data-target="4">0</span></div>
+        <div class="stat-l">Peran Pengguna</div>
+        <div class="stat-s">RBAC terstruktur</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n"><span class="counter" data-target="99">0</span>%</div>
+        <div class="stat-l">Target Uptime</div>
+        <div class="stat-s">SLA guaranteed</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n">&lt;2<span style="font-size:18px;color:var(--text-2)">dtk</span></div>
+        <div class="stat-l">Response Time</div>
+        <div class="stat-s">rata-rata API</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     ROLES
+══════════════════════════════════════════════ -->
+<section class="section section-alt" id="roles">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="tag">4 Peran Pengguna</div>
+      <h2 class="section-title">Setiap orang punya <span class="highlight">akses yang tepat.</span></h2>
+      <p class="section-sub" style="max-width:500px;">Tidak ada overprivilege. Setiap role dirancang sesuai tanggung jawabnya — ketat, aman, dan auditable.</p>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card reveal d1">
+        <span class="role-badge rb-admin">Admin Platform</span>
+        <h3>Admin</h3>
+        <p>Pengelola platform secara global — mengelola semua tenant dan subscription.</p>
+        <ul class="role-perms">
+          <li>Kelola subscription plan</li>
+          <li>Aktifkan / nonaktifkan tenant</li>
+          <li>Perpanjang subscription</li>
+          <li>Kelola akun admin lain</li>
+        </ul>
+      </div>
+      <div class="role-card reveal d2">
+        <span class="role-badge rb-owner">Pemilik Bisnis</span>
+        <h3>Owner</h3>
+        <p>Pemilik tenant — view dashboard, kelola store dan tim kasir. Tidak ikut campur operasional.</p>
+        <ul class="role-perms">
+          <li>Tambah / hapus store</li>
+          <li>Kelola kasir & admin store</li>
+          <li>Lihat laporan semua store</li>
+          <li>Monitor omzet real-time</li>
+        </ul>
+      </div>
+      <div class="role-card reveal d3">
+        <span class="role-badge rb-store">Admin Toko</span>
+        <h3>Admin Store</h3>
+        <p>Pengelola operasional satu store — produk, stok, pembelian dari supplier.</p>
+        <ul class="role-perms">
+          <li>Manajemen produk</li>
+          <li>Input stok masuk</li>
+          <li>Open stok / opname</li>
+          <li>Convert satuan stok</li>
+        </ul>
+      </div>
+      <div class="role-card reveal d4">
+        <span class="role-badge rb-kasir">Kasir</span>
+        <h3>Kasir</h3>
+        <p>Operator transaksi harian. Hanya akses POS, opname, dan konversi di toko sendiri.</p>
+        <ul class="role-perms">
+          <li>Transaksi POS</li>
+          <li>Lihat riwayat transaksi</li>
+          <li>Open stok / opname</li>
+          <li>Convert satuan stok</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     PRICING
+══════════════════════════════════════════════ -->
+<section class="section" id="harga">
+  <div class="container">
+    <div class="pricing-head reveal">
+      <div class="tag">Harga Transparan</div>
+      <h2 class="section-title">Pilih plan yang <span class="highlight">sesuai bisnis</span> Anda.</h2>
+      <p class="section-sub">Bayar bulanan, batalkan kapan saja. Tidak ada biaya tersembunyi, tidak ada kontrak panjang.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Basic -->
+      <div class="price-card reveal d1">
+        <div class="price-plan">Basic</div>
+        <div class="price-desc">Untuk bisnis satu toko yang baru mulai digital.</div>
+        <div class="price-amount">
+          <span class="price-rp">Rp</span>
+          <span class="price-num">99</span>
+          <span class="price-period">rb</span>
+        </div>
+        <div class="price-per">per bulan · 1 toko · 2 kasir</div>
+        <div class="price-divider"></div>
+        <ul class="price-feats">
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>1 Store</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>2 Kasir per store</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>POS Transaksi</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Manajemen Stok</li>
+          <li class="pf-muted"><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>Multi Store</li>
+          <li class="pf-muted"><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>Priority Support</li>
+        </ul>
+        <a href="/app/login?plan=basic"><button class="btn-subscribe outline">Mulai Basic</button></a>
+      </div>
+
+      <!-- Pro -->
+      <div class="price-card popular reveal d2">
+        <div class="popular-tag">Paling Populer</div>
+        <div class="price-plan">Pro</div>
+        <div class="price-desc">Untuk bisnis berkembang dengan banyak toko dan kasir.</div>
+        <div class="price-amount">
+          <span class="price-rp">Rp</span>
+          <span class="price-num">299</span>
+          <span class="price-period">rb</span>
+        </div>
+        <div class="price-per">per bulan · 5 toko · 5 kasir/toko</div>
+        <div class="price-divider"></div>
+        <ul class="price-feats">
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>5 Store</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>5 Kasir per store</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Semua fitur Basic</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Laporan Multi-store</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Dashboard Owner</li>
+          <li class="pf-muted"><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>Priority Support</li>
+        </ul>
+        <a href="/app/login?plan=pro"><button class="btn-subscribe">Mulai Pro</button></a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="price-card reveal d3">
+        <div class="price-plan">Enterprise</div>
+        <div class="price-desc">Untuk jaringan toko besar tanpa batas jumlah store dan kasir.</div>
+        <div class="price-amount">
+          <span class="price-rp">Rp</span>
+          <span class="price-num">699</span>
+          <span class="price-period">rb</span>
+        </div>
+        <div class="price-per">per bulan · Unlimited store & kasir</div>
+        <div class="price-divider"></div>
+        <ul class="price-feats">
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Unlimited Store</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Unlimited Kasir</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Semua fitur Pro</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Priority Support</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Custom Onboarding</li>
+          <li><div class="pf-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>SLA Uptime 99%</li>
+        </ul>
+        <a href="/app/login?plan=enterprise"><button class="btn-subscribe outline">Hubungi Sales</button></a>
+      </div>
+
+    </div>
+    <p class="pricing-note">Semua plan termasuk uji coba gratis 14 hari · Tidak perlu kartu kredit · Batalkan kapan saja</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════ -->
+<section class="section section-alt" id="testimonial">
+  <div class="container">
+    <div class="testi-head reveal">
+      <div class="tag">Testimoni</div>
+      <h2 class="section-title">Dipakai bisnis nyata,<br><span class="highlight">terbukti hasilnya.</span></h2>
+      <p class="section-sub">Lebih dari 500 pemilik toko mempercayakan operasional harian mereka ke Omni Kasir.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">"Dulu rekap omzet 3 toko harus pergi langsung ke masing-masing toko. Sekarang cukup buka HP, semua langsung kelihatan. Hemat waktu banget."</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#667eea,#764ba2)">BS</div>
+          <div>
+            <div class="testi-name">Budi Santoso</div>
+            <div class="testi-role">Owner · PT Maju Jaya Sejahtera · Jakarta</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">"Kasir saya tidak perlu training lama. Interface POS-nya simpel, mereka langsung bisa pakai hari pertama. Stok juga otomatis berkurang setiap transaksi."</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#f093fb,#f5576c)">SR</div>
+          <div>
+            <div class="testi-name">Sari Dewi</div>
+            <div class="testi-role">Owner · CV Warung Bu Sari · Depok</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d3">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">"Fitur opname stok sangat membantu. Kami bisa tahu barang mana yang selisih dan langsung isi alasannya. Audit jadi jauh lebih mudah."</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">HK</div>
+          <div>
+            <div class="testi-name">Hendra Kusuma</div>
+            <div class="testi-role">Owner · PT Rezeki Abadi Mandiri · Surabaya</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="faq-head reveal">
+      <div class="tag">FAQ</div>
+      <h2 class="section-title">Pertanyaan yang <span class="highlight">sering ditanya.</span></h2>
+      <p class="section-sub">Tidak menemukan jawaban yang dicari? Hubungi kami di support@omnikasir.id</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">
+          Apakah Omni Kasir bisa dipakai di HP?
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya. Omni Kasir adalah aplikasi web yang responsif — bisa diakses dari HP, tablet, maupun laptop. Tidak perlu instalasi apapun. Cukup buka browser dan masukkan URL.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Data saya aman? Apakah bisa tercampur dengan bisnis lain?
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Tidak. Setiap bisnis (tenant) memiliki isolasi data penuh via row-level security. Setiap query wajib menyertakan tenantId dari JWT token — data satu bisnis tidak pernah bisa diakses oleh bisnis lain.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Berapa jumlah produk yang bisa diinput?
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Tidak ada batasan jumlah produk untuk semua plan. Anda bisa input ribuan produk per store. Fitur pencarian di POS dirancang khusus untuk toko dengan banyak produk agar kasir tetap bisa transaksi dengan cepat.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Apakah bisa upgrade atau downgrade plan?
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa. Upgrade bisa dilakukan kapan saja dan berlaku langsung. Downgrade berlaku di siklus penagihan berikutnya. Hubungi admin platform untuk proses perpanjangan atau ganti plan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Bagaimana jika saya lupa password kasir?
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Owner dapat membuat akun kasir baru dengan email berbeda, atau menghubungi support untuk reset manual. Fitur reset password via email sedang dalam pengembangan (Sprint 2).</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Apakah transaksi bisa diedit atau dibatalkan setelah tersimpan?
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Tidak. Sesuai standar akuntansi, transaksi yang sudah tersimpan bersifat immutable. Koreksi dilakukan via transaksi retur (fitur Sprint 2). Ini menjaga integritas data historis Anda.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div class="tag" style="margin-bottom:20px;">Mulai Sekarang</div>
+      <h2>Bisnis Anda layak punya<br><span class="highlight">sistem kasir yang lebih baik.</span></h2>
+      <p>Bergabung dengan 500+ bisnis yang sudah menggunakan Omni Kasir.<br>Coba gratis 14 hari, tidak perlu kartu kredit.</p>
+      <div class="cta-actions">
+        <a href="/app/login?ref=cta"><button class="btn-primary large">
+          Mulai Gratis Sekarang
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button></a>
+        <a href="mailto:hello@omnikasir.id"><button class="btn-ghost large">Tanya via Email</button></a>
+      </div>
+      <div class="cta-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gratis 14 hari</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tanpa kartu kredit</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Setup 5 menit</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Batalkan kapan saja</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo" style="margin-bottom:14px;">
+          <div class="nav-logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+          </div>
+          Omni Kasir
+        </a>
+        <p>Platform kasir SaaS multi-tenant untuk bisnis ritel modern. Satu dashboard untuk semua toko Anda.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Produk</h4>
+        <ul>
+          <li><a href="#fitur">Fitur</a></li>
+          <li><a href="#cara-kerja">Cara Kerja</a></li>
+          <li><a href="#harga">Harga</a></li>
+          <li><a href="/app/login">Login</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Perusahaan</h4>
+        <ul>
+          <li><a href="/about">Tentang Kami</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/karir">Karir</a></li>
+          <li><a href="mailto:hello@omnikasir.id">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dukungan</h4>
+        <ul>
+          <li><a href="/docs">Dokumentasi</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="mailto:support@omnikasir.id">Support</a></li>
+          <li><a href="/status">Status Sistem</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Omni Kasir. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="/privacy">Kebijakan Privasi</a>
+        <a href="/terms">Syarat & Ketentuan</a>
+        <a href="/cookies">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // ── Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Counter animation
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.target;
+      const duration = 1800;
+      const steps = duration / 16;
+      const inc = target / steps;
+      let cur = 0;
+      const tick = () => {
+        cur = Math.min(cur + inc, target);
+        el.textContent = Math.floor(cur).toLocaleString('id-ID');
+        if (cur < target) requestAnimationFrame(tick);
+        else el.textContent = target.toLocaleString('id-ID');
+      };
+      tick();
+      counterObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+  // ── FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── Mobile hamburger
+  const hamburger = document.getElementById('hamburger');
+  let mobileMenu = null;
+  hamburger.addEventListener('click', () => {
+    if (mobileMenu) {
+      mobileMenu.remove(); mobileMenu = null;
+    } else {
+      mobileMenu = document.createElement('div');
+      mobileMenu.className = 'nav-mobile';
+      mobileMenu.innerHTML = `
+        <a href="#fitur" onclick="this.closest('.nav-mobile').remove();mobileMenu=null">Fitur</a>
+        <a href="#cara-kerja" onclick="this.closest('.nav-mobile').remove();mobileMenu=null">Cara Kerja</a>
+        <a href="#harga" onclick="this.closest('.nav-mobile').remove();mobileMenu=null">Harga</a>
+        <a href="#testimonial" onclick="this.closest('.nav-mobile').remove();mobileMenu=null">Testimoni</a>
+        <a href="#faq" onclick="this.closest('.nav-mobile').remove();mobileMenu=null">FAQ</a>
+        <a href="/app/login" style="color:#818cf8;font-weight:700">Masuk →</a>
+      `;
+      document.querySelector('.navbar').appendChild(mobileMenu);
+    }
+  });
+</script>
+
+</body>
+</html>

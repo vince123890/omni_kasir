@@ -1,0 +1,96 @@
+:root {
+  /* Primary */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-bg: #eef2ff;
+  --color-primary-border: #c7d2fe;
+
+  /* Semantic */
+  --color-success: #059669;
+  --color-success-bg: #ecfdf5;
+  --color-warning: #d97706;
+  --color-warning-bg: #fffbeb;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-info: #0891b2;
+  --color-info-bg: #ecfeff;
+
+  /* Neutral */
+  --color-text: #111827;
+  --color-text-secondary: #6b7280;
+  --color-border: #f0f0f0;
+  --color-border-medium: #e5e7eb;
+  --color-surface: #ffffff;
+  --color-bg: #f5f5f5;
+  --color-bg-subtle: #f8fafc;
+
+  /* Sidebar */
+  --color-sidebar-bg: #0f172a;
+  --color-sidebar-border: #1e293b;
+  --color-sidebar-text: #94a3b8;
+  --color-sidebar-active: var(--color-primary);
+
+  /* Shadow */
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-primary: 0 4px 12px rgba(79, 70, 229, 0.15);
+  --shadow-login: 0 25px 50px rgba(0, 0, 0, 0.3);
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Button height */
+  --btn-height-md: 40px;
+  --btn-height-lg: 48px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: var(--color-primary) !important;
+}
+
+.pos-product-card:hover {
+  border-color: var(--color-primary) !important;
+  box-shadow: var(--shadow-primary) !important;
+}
+
+.pos-product-card.in-cart {
+  border-color: var(--color-primary) !important;
+  background-color: var(--color-primary-bg) !important;
+}
+
+/* Mobile sidebar overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}
+
+@media (max-width: 768px) {
+  .sidebar-overlay.visible {
+    display: block;
+  }
+}
